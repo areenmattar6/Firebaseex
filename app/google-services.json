@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "357600712512",
+    "firebase_url": "https://test2-ec24c.firebaseio.com",
+    "project_id": "test2-ec24c",
+    "storage_bucket": "test2-ec24c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357600712512:android:addfbe009a1ebd2b",
+        "android_client_info": {
+          "package_name": "com.mattar.areen.firebaseex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357600712512-r2fpmls7oksev4p51pq576ebiromhiv4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1zfB2DjhZVS1ULzLAYK7jln5d_lsb2_Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
