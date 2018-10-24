@@ -1,6 +1,5 @@
 package com.mattar.areen.firebaseex;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,14 +12,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class RegisterPage extends AppCompatActivity implements View.OnClickListener {
 
 
     FirebaseAuth firebaseAuth;
 
-    Button btnReg,btnLogin;
+    Button btnReg;
     EditText etEmail,etPass;
-     int mode=0; // o means register 1 means login
+    int mode=0; // o means register 1 means login
 
 
 
@@ -30,27 +29,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        btnLogin = (Button)findViewById(R.id.btnLogin);
-        btnLogin.setOnClickListener(this);
         btnReg = (Button)findViewById(R.id.btnRegister);
         btnReg.setOnClickListener(this);
 
-            }
+    }
 
+    public void register()
+    {
+
+        firebaseAuth.createUserWithEmailAndPassword(etEmail.getText().toString(),etPass.getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(RegisterPage.this, "Successfully registered", Toast.LENGTH_LONG).show();
+
+                } else {
+                    Toast.makeText(RegisterPage.this, "Registration Error", Toast.LENGTH_LONG).show();
+
+                }
+
+            }
+        });
+
+    }
 
 
     @Override
     public void onClick(View v) {
 
-        if (v==btnReg)
-        {   Toast.makeText(MainActivity.this, "Successfully registered", Toast.LENGTH_LONG).show();
-            Intent intent=new Intent(MainActivity.this,Reg.class);
-            startActivity(intent);
-        }
-        if (v==btnLogin)
+        if (btnReg==v)
         {
-            Intent intent=new Intent(MainActivity.this,LoginPage.class);
-            startActivity(intent);
+            register();
         }
 
 
